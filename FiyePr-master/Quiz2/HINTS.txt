@@ -1,0 +1,5 @@
+1. python generate.py( change filename path)
+2. image save to D:\PythonProjects\FiyePr-master\Quiz2\media\images
+3. python training.py
+4. python cnn.py
+5. python manage.py runserver

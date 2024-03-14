@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+    
+
+{% block body %}
+<div align="center">  
+<h1>Live Stream</h1><br>
+  
+  <img src="{% url 'video_feed' %}" alt="Live Stream">
+  <br>
+<br>
+  <button id="capture-btn">Capture Image</button>
+  </div>
+<script>
+  $('#capture-btn').click(function() {
+    $.ajax({
+        url: '/capture/',
+        type: 'GET',
+        success: function(response) {
+            if (response.redirect_url) {
+                window.location.href = response.redirect_url;  // Perform the redirect
+            } else {
+                alert('Face not verified. Please try again.');
+            }
+        },
+        error: function(xhr, status, error) {
+            console.log('Error:', error);
+        }
+    });
+});
+</script>
+
+ 
+{% endblock %}
